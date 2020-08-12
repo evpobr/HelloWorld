@@ -23,7 +23,7 @@ jobs:
         run: |
           mkdir build
           cd build
-          cmake .. -DCMAKE_BUILD_TYPE=Release
+          cmake .. -DCMAKE_BUILD_TYPE=Release -DCPACK_PACKAGE_CONTACT="evpobr" -DCPACK_DEBIAN_PACKAGE_SHLIBDEPS=ON
           cmake --build . --config Release
       - name: Pack (DEB)
         if: startsWith(matrix.os,'ubuntu')
