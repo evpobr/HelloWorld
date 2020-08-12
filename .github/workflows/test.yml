@@ -1,0 +1,25 @@
+name: C/C++ CI
+
+on: [push]
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        name: [ubuntu, ubuntu, macos, windows]
+        include:
+          - name: ubuntu
+            os: ubuntu-latest
+          - name: macos
+            os: macos-latest
+          - name: windows
+            os: windows-latest
+
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Build and Test
+        run: |
+          mkdir build
+          cd build
+          cmake -G Ninja Multi-Config .. -DCMAKE_BUILD_TYPE=Release
+          cmake --build . --config Release
