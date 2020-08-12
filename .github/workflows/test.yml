@@ -36,7 +36,7 @@ jobs:
           cd build
           cmake --version
           cpack.exe -G "ZIP"
-      - uses: actions/upload-artifact@v1
+      - uses: actions/upload-artifact@v2
         if: startsWith(matrix.os,'ubuntu')
         with:
           name: helloworld-${{env.project-version}}-Linux.deb
