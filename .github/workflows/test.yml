@@ -14,6 +14,8 @@ jobs:
             os: macos-latest
           - name: windows
             os: windows-latest
+    env:
+      project-version: "0.1.0"
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v2
